@@ -1,0 +1,72 @@
+.home-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* ocupa a tela toda */
+}
+
+.home-body {
+  display: flex;
+  justify-content: center;
+  padding: 1.25rem;
+  gap: 1.25rem;
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+.perfil-card-container {
+  width: 17.5rem;
+  flex-shrink: 0;
+}
+
+.main-content-container {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  max-height: calc(100vh - 80px); /* altura do header ajustada */
+}
+
+.main-content {
+  overflow-y: auto;
+  width: 100%;
+  max-width: 62.5rem;
+  padding: 1.25rem;
+  border: 0.0625rem solid #ccc;
+  border-radius: 0.625rem;
+  background-color: #141414;
+  text-align: center;
+}
+
+.subheader {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.subheader button {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #ffffff;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s, border-bottom 0.3s;
+}
+
+.subheader button:hover {
+  color: #00f7ff;
+  border-bottom: 2px solid #00f7ff;
+}
+
+.subheader button.active {
+  color: #00f7ff;
+  border-bottom: 2px solid #00f7ff;
+}
+
+.right-sidebar-container {
+  width: 17.5rem;
+  flex-shrink: 0;
+}

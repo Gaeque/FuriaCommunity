@@ -1,0 +1,14 @@
+body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  background: linear-gradient(to bottom, rgb(0, 0, 0), #000000);
+}
+
+#tsparticles {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  pointer-events: none; 
+  z-index: 1000; 
+}

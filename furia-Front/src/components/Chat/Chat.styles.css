@@ -1,0 +1,219 @@
+.chat-container {
+  position: relative;
+}
+
+.chat-icon {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #007bff;
+  border-radius: 50%;
+  padding: 15px;
+  cursor: pointer;
+  color: white;
+  font-size: 30px;
+  text-align: center;
+  z-index: 1100;
+}
+
+.friends-list {
+  position: fixed;
+  bottom: 120px;
+  right: 20px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 200px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  z-index: 1000;
+}
+
+.friend-item {
+  padding: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  color: #000000;
+  transition: background-color 0.2s;
+  border: 1px solid #ddd;
+}
+
+.friend-item:hover {
+  background-color: #9e9e9e;
+}
+
+.chat-box {
+  position: fixed;
+  bottom: 40px;
+  right: 380px;
+  width: 400px;
+  height: 500px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-header {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  align-items: center;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #000;
+}
+
+.close-chat-btn {
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  margin-bottom: 10px;
+  padding-right: 10px;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  padding: 10px 5px;
+}
+
+.chat-input-area {
+  margin-top: 10px;
+}
+
+.chat-input {
+  width: 98%;
+  height: 100px;
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  resize: none;
+}
+
+.chat-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 5px;
+}
+
+.image-upload {
+  cursor: pointer;
+  font-size: 24px;
+}
+
+.send-button {
+  padding: 8px 16px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.send-button:hover {
+  background-color: #218838;
+}
+.friends-list.expanded {
+  width: 300px;
+  height: 340px;
+  background: #f7f7f7;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.search-bar input {
+  flex: 1;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.search-bar button {
+  margin-left: 5px;
+  padding: 5px 10px;
+  background-color: #007bff;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.tab-buttons {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.tab-buttons button {
+  flex: 1;
+  padding: 8px 0;
+  background: #e0e0e0;
+  border: none;
+  cursor: pointer;
+}
+
+.tab-buttons .active {
+  background: #007bff;
+  color: white;
+}
+
+.friend-item,
+.friend-request-item,
+.search-result-item {
+  background: #fff;
+  padding: 8px;
+  border-radius: 5px;
+  margin-top: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.accept-btn,
+.reject-btn {
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+.add-friend-btn {
+  color: white;
+  border: none;
+  padding: 3px 6px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.search-results {
+  margin-top: 15px;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+}
+
+.search-bar input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+}
+
+.search-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  margin-left: 5px;
+}

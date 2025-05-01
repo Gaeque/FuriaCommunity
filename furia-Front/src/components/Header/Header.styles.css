@@ -1,0 +1,35 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90px;
+  gap: 4rem;
+  padding-top: 2rem;
+}
+
+.img {
+  object-fit: contain;
+}
+
+.header-button {
+  width: 140px;
+  height: 40px;
+  padding: 8px 16px;
+  background-color: #000;
+  color: white;
+  border: 1px solid #fff;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.3s;
+  text-align: center;
+}
+
+.logout-button {
+  position: absolute;
+  left: 80px;
+}
+
+.header-button:hover {
+  background-color: #333;
+}

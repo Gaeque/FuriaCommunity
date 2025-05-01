@@ -1,0 +1,177 @@
+.profile-container {
+  font-family: Arial, sans-serif;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  grid-template-areas: "left-column right-column";
+  padding-top: 20px;
+  margin: 40px;
+}
+
+.profile-left {
+  grid-area: left-column;
+}
+
+.profile-right {
+  grid-area: right-column;
+}
+
+.profile-card,
+.personal-info-card {
+  background-color: #111;
+  padding: 1.25rem;
+  border-radius: 8px;
+  border: 1px solid #333;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1.25rem;
+  height: 40vh;
+}
+
+.personal-info-card h3 {
+  text-align: center;
+}
+
+.profile-photo {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.profile-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 10px;
+  object-fit: contain;
+  margin-bottom: 10px;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease;
+}
+
+.edit-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  color: #fff;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.profile-photo:hover .edit-icon {
+  opacity: 1;
+}
+
+.profile-photo:hover .profile-image {
+  opacity: 0.7;
+  transform: scale(1.05);
+}
+
+.profile-info {
+  text-align: center;
+}
+.profile-info-inputs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.personal-info-card {
+  display: grid;
+  grid-template-areas: "left-column right-column";
+  grid-template-columns: 1fr 1fr;
+  text-align: center;
+}
+
+.personal-info-card h1 {
+  font-size: 20px;
+}
+
+.personal-info-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.personal-info-inputs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.personal-info-inputs p {
+  font-size: 14px;
+  margin: 2px;
+}
+
+.personal-info-inputs h2 {
+  font-size: 14px;
+}
+
+.socials-info-inputs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.social-icon {
+  margin-right: 10px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+}
+
+.edit-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.edit-Button {
+  padding: 0.5rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  background-color: transparent;
+  transition: border-color 0.3s ease;
+}
+
+.edit-button-edit {
+  color: rgb(253, 250, 250);
+}
+
+.edit-button-save {
+  color: green;
+}
+
+.edit-Button:hover {
+  opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+  .profile-content {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "left-column"
+      "right-column";
+  }
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  font-size: 1.5rem;
+  color: #fff;
+}
