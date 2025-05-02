@@ -1,12 +1,16 @@
 .upcoming-game-card-container {
   background-color: #fff;
-  padding: 10px;
+  padding: 1px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 180px;
+  height: 190px;
 }
 
 .upcoming-game-card-container h3 {
   text-align: center;
+  font-size: 14px;
+  color: #000;
 }
 
 .game-card {
@@ -24,7 +28,7 @@
 }
 
 .game-logo {
-  width: 80px;
+  width: 40px;
   height: auto;
   object-fit: contain;
 }
@@ -40,14 +44,15 @@
 }
 
 .game-info h4 {
-  font-size: 18px;
+  font-size: 14px;
   font-weight: bold;
   text-align: center;
   margin-bottom: 5px;
 }
 
 .game-info p {
-  font-size: 14px;
+  font-size: 12px;
+  font-weight: bold;
   text-align: center;
 }
 
@@ -55,7 +60,6 @@
   display: flex;
   justify-content: center;
   gap: 10px;
-  margin-top: 15px;
 }
 
 .game-dot {

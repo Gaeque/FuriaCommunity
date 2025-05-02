@@ -3,6 +3,7 @@ package com.gaeque.furia.Controllers;
 import com.gaeque.furia.DTOs.ProfileDTO;
 import com.gaeque.furia.Entity.User;
 import com.gaeque.furia.Repository.UserRepository;
+import com.gaeque.furia.Service.FriendshipService;
 import com.gaeque.furia.Service.ProfileService;
 import com.gaeque.furia.Utils.JwtUtil;
 import java.util.Optional;
@@ -20,12 +21,18 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping({"/api/profile"})
 public class ProfileController {
+
     @Autowired
     private ProfileService profileService;
+
     @Autowired
     private JwtUtil jwtUtil;
+
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private FriendshipService friendshipService;
 
     public ProfileController() {
     }
@@ -46,15 +53,26 @@ public class ProfileController {
         return ResponseEntity.ok(profileDTO);
     }
 
-    @GetMapping({"/search"})
+    @GetMapping("/search")
     public ResponseEntity<?> searchUser(@RequestParam String userName, @RequestHeader("Authorization") String token) {
-        String currentEmail = this.jwtUtil.getUsernameFromToken(token.substring(7));
-        User currentUser = (User)this.userRepository.findByEmail(currentEmail).orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
+        String currentEmail = jwtUtil.getUsernameFromToken(token.substring(7));
+        User currentUser = userRepository.findByEmail(currentEmail)
+                .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
+
         if (currentUser.getUserName().equalsIgnoreCase(userName)) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Você não pode se adicionar como amigo");
-        } else {
-            Optional<User> userOptional = this.userRepository.findByUserNameIgnoreCase(userName);
-            return userOptional.isEmpty() ? ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuário não encontrado") : ResponseEntity.ok(((User)userOptional.get()).getUserName());
         }
+
+        Optional<User> userOptional = userRepository.findByUserNameIgnoreCase(userName);
+        if (userOptional.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuário não encontrado");
+        }
+
+        boolean alreadyFriends = friendshipService.areFriends(currentUser.getUserName(), userName);
+        if (alreadyFriends) {
+            return ResponseEntity.status(HttpStatus.CONFLICT).body("Vocês já são amigos");
+        }
+
+        return ResponseEntity.ok(userOptional.get().getUserName());
     }
 }

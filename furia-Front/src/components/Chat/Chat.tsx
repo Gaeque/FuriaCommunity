@@ -3,13 +3,6 @@ import "./Chat.styles.css";
 import { FriendshipAPI } from "../../services/FriendshipService";
 import { useAuth } from "../../hooks/UseAuth";
 
-const friendsList = [
-  { id: 1, name: "Amigo 1" },
-  { id: 2, name: "Amigo 2" },
-  { id: 3, name: "Amigo 3" },
-  { id: 4, name: "Amigo 4" },
-];
-
 type FriendRequest = {
   id: number;
   userName: string;
@@ -23,9 +16,12 @@ const Chat: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState<string>("");
   const [activeTab, setActiveTab] = useState<"friends" | "requests">("friends");
+  const [friends, setFriends] = useState<FriendRequest[]>([]);
+
   const { user } = useAuth();
 
   const toggleChat = () => {
+    getFriends();
     setIsChatOpen((prev) => {
       const newState = !prev;
       if (!newState) {
@@ -39,6 +35,7 @@ const Chat: React.FC = () => {
       return newState;
     });
   };
+
   const [requestSent, setRequestSent] = useState(false);
 
   const selectFriend = (id: number) => {
@@ -48,6 +45,26 @@ const Chat: React.FC = () => {
   const closeChat = () => {
     setSelectedFriend(null);
   };
+
+  async function getFriends() {
+    try {
+      const token = user?.token;
+      if (!token) {
+        console.log("Token de autenticação ausente.");
+        return;
+      }
+
+      const result = await FriendshipAPI.getFriends(token);
+      console.log(result?.data);
+      if (result?.data) {
+        setFriends(result.data);
+      } else {
+        setFriends([]);
+      }
+    } catch (error) {
+      console.log("Erro ao buscar solicitações:", error);
+    }
+  }
 
   async function handleSearchFriends(term: string) {
     try {
@@ -115,19 +132,59 @@ const Chat: React.FC = () => {
     }
   }
 
-  const acceptFriendRequest = (id: number) => {
-    console.log(`Aceitando solicitação de amizade do ID: ${id}`);
-    setFriendRequests((prevRequests) =>
-      prevRequests.filter((request) => request.id !== id)
-    );
-  };
+  async function handleAcceptFriendRequest(friendUserName: string) {
+    try {
+      const token = user?.token;
+      const userName = user?.userName;
 
-  const rejectFriendRequest = (id: number) => {
-    console.log(`Rejeitando solicitação de amizade do ID: ${id}`);
-    setFriendRequests((prevRequests) =>
-      prevRequests.filter((request) => request.id !== id)
-    );
-  };
+      if (!token || !userName) {
+        console.log("Token ou userName ausente.");
+        return;
+      }
+
+      const result = await FriendshipAPI.acceptFriendRequest(
+        userName,
+        friendUserName,
+        token
+      );
+
+      console.log("Solicitação aceita:", result?.status);
+
+      setFriendRequests((prev) =>
+        prev.filter((req) => req.userName !== friendUserName)
+      );
+
+      getFriends();
+    } catch (error) {
+      console.log("Erro ao aceitar amizade:", error);
+    }
+  }
+
+  async function handleRejectFriendRequest(friendUserName: string) {
+    try {
+      const token = user?.token;
+      const userName = user?.userName;
+
+      if (!token || !userName) {
+        console.log("Token ou userName ausente.");
+        return;
+      }
+
+      const result = await FriendshipAPI.rejectFriendRequest(
+        userName,
+        friendUserName,
+        token
+      );
+
+      console.log("Solicitação Recusada:", result);
+
+      setFriendRequests((prev) =>
+        prev.filter((req) => req.userName !== friendUserName)
+      );
+    } catch (error) {
+      console.log("Erro ao aceitar amizade:", error);
+    }
+  }
 
   useEffect(() => {
     handleGetPendingRequests();
@@ -187,15 +244,19 @@ const Chat: React.FC = () => {
 
                   {activeTab === "friends" && (
                     <div className="friends-list-items">
-                      {friendsList.map((friend) => (
-                        <div
-                          key={friend.id}
-                          className="friend-item"
-                          onClick={() => selectFriend(friend.id)}
-                        >
-                          {friend.name}
-                        </div>
-                      ))}
+                      {friends.length > 0 ? (
+                        friends.map((friend) => (
+                          <div
+                            key={friend.id}
+                            className="friend-item"
+                            onClick={() => selectFriend(friend.id)}
+                          >
+                            {friend.userName}
+                          </div>
+                        ))
+                      ) : (
+                        <p>Você ainda não possui amigos.</p>
+                      )}
                     </div>
                   )}
 
@@ -207,13 +268,17 @@ const Chat: React.FC = () => {
                             {request.userName}
                             <span
                               className="accept-btn"
-                              onClick={() => acceptFriendRequest(request.id)}
+                              onClick={() =>
+                                handleAcceptFriendRequest(request.userName)
+                              }
                             >
                               ✅
                             </span>
                             <span
                               className="reject-btn"
-                              onClick={() => rejectFriendRequest(request.id)}
+                              onClick={() =>
+                                handleRejectFriendRequest(request.userName)
+                              }
                             >
                               ❌
                             </span>
@@ -262,8 +327,7 @@ const Chat: React.FC = () => {
         <div className="chat-box">
           <div className="chat-header">
             <h4>
-              Chat com{" "}
-              {friendsList.find((friend) => friend.id === selectedFriend)?.name}
+              {friends.find((friend) => friend.id === selectedFriend)?.userName}
             </h4>
             <span className="close-chat-btn" onClick={closeChat}>
               ❌
@@ -272,11 +336,10 @@ const Chat: React.FC = () => {
 
           <div className="chat-messages">
             <p>
-              <strong>Amigo:</strong> Olá, tudo bem?
+              {friends.find((friend) => friend.id === selectedFriend)?.userName}
+              : Olá, tudo bem?
             </p>
-            <p>
-              <strong>Você:</strong> Tudo sim, e você?
-            </p>
+            <p>{user?.userName}: Tudo sim, e você?</p>
           </div>
 
           <div className="chat-input-area">

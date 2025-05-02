@@ -1,6 +1,9 @@
+import { useAuth } from "../../hooks/UseAuth";
 import "./PerfilCard.styles.css";
 
 export function PerfilCard() {
+  const { user } = useAuth();
+
   return (
     <div className="sidebar-left">
       <div className="floating-card">
@@ -8,11 +11,7 @@ export function PerfilCard() {
           <div className="user-image">
             <span>Imagem</span>
           </div>
-          <div className="user-name">Gaeque Luan</div>
-
-          <div className="progress-bar-container">
-            <div className="progress-bar" style={{ width: "60%" }}></div>
-          </div>
+          <div className="user-name">{user?.userName}</div>
         </div>
       </div>
     </div>

@@ -1,7 +1,7 @@
 .home-container {
   display: flex;
   flex-direction: column;
-  height: 100vh; /* ocupa a tela toda */
+  height: 100vh;
 }
 
 .home-body {
@@ -16,6 +16,8 @@
 .perfil-card-container {
   width: 17.5rem;
   flex-shrink: 0;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .main-content-container {
@@ -23,13 +25,13 @@
   display: flex;
   justify-content: center;
   overflow: hidden;
-  max-height: calc(100vh - 80px); /* altura do header ajustada */
+  max-height: calc(100vh - 80px); 
 }
 
 .main-content {
   overflow-y: auto;
   width: 100%;
-  max-width: 62.5rem;
+  max-width: 40rem;
   padding: 1.25rem;
   border: 0.0625rem solid #ccc;
   border-radius: 0.625rem;
@@ -47,7 +49,7 @@
 
 .subheader button {
   padding: 10px 20px;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: bold;
   color: #ffffff;
   background: transparent;

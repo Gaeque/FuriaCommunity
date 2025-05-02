@@ -30,7 +30,13 @@ export function Header() {
         />
       </Link>
 
-      <img src={furia} alt="Logo Fúria" className="img" width={70} />
+      <img
+        src={furia}
+        alt="Logo Fúria"
+        className="img"
+        width={70}
+        height={70}
+      />
 
       <Link to="/profile">
         <Button

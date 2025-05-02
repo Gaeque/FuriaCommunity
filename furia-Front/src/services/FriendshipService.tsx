@@ -32,11 +32,7 @@ const FriendshipAPI = {
   ) {
     try {
       const result = await server(token).post(
-        "/api/friendship/acceptRequest",
-        null,
-        {
-          params: { userName, friendUserName },
-        }
+        `/api/friends/acceptRequest?userName=${userName}&friendUserName=${friendUserName}`
       );
       return result;
     } catch (e: any) {
@@ -51,11 +47,7 @@ const FriendshipAPI = {
   ) {
     try {
       const result = await server(token).post(
-        "/api/friendship/rejectRequest",
-        null,
-        {
-          params: { userName, friendUserName },
-        }
+        `/api/friends/rejectRequest?userName=${userName}&friendUserName=${friendUserName}`
       );
       return result;
     } catch (e: any) {
@@ -83,6 +75,15 @@ const FriendshipAPI = {
       const result = await server(token).get("/api/profile/search", {
         params: { userName: userName },
       });
+      return result;
+    } catch (e: any) {
+      console.log(e);
+    }
+  },
+
+  getFriends: async function (token: string) {
+    try {
+      const result = await server(token).get("/api/friends/getFriends");
       return result;
     } catch (e: any) {
       console.log(e);
