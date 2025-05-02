@@ -19,9 +19,7 @@ export function Home() {
     <div className="home-container">
       <Header />
       <div className="home-body">
-        <div className="perfil-card-container">
-          <PerfilCard />
-        </div>
+        <div className="perfil-card-container"></div>
         <div className="main-content-container">
           <div className="main-content">
             <div className="subheader">

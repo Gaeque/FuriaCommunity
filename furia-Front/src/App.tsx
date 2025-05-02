@@ -3,9 +3,7 @@ import IndexRoutes from "./routes/Index.Routes";
 
 function App() {
   return (
-
-
-    <AuthContextProvider >
+    <AuthContextProvider>
       <IndexRoutes />
     </AuthContextProvider>
   );
