@@ -6,7 +6,7 @@
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background-color: #007bff;
+  background-color: #616161;
   border-radius: 50%;
   padding: 15px;
   cursor: pointer;
@@ -45,15 +45,16 @@
 .chat-box {
   position: fixed;
   bottom: 40px;
-  right: 380px;
+  right: 20px; 
   width: 400px;
+  max-width: 90vw;
   height: 500px;
   background-color: #fff;
   border: 1px solid #ccc;
   border-radius: 10px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
   padding: 10px;
-  z-index: 1000;
+  z-index: 1200; 
   display: flex;
   flex-direction: column;
 }
@@ -64,9 +65,7 @@
   text-align: center;
   align-items: center;
   margin-bottom: 10px;
-  border-bottom: 1px solid #000;
 }
-
 
 .close-chat-btn {
   cursor: pointer;
@@ -88,10 +87,28 @@
   border: 1px solid #000;
   padding: 8px;
   border-radius: 10px;
-  word-wrap: break-word; 
-  white-space: pre-wrap;  
-  word-break: break-word; 
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  word-break: break-word;
   max-width: 100%;
+}
+
+.own-message {
+  color: #2e8b57;
+  text-align: start;
+  background-color: #e0ffe0;
+  padding: 6px;
+  border-radius: 8px;
+  margin: 4px 0;
+}
+
+.friend-message {
+  color: #000000;
+  text-align: left;
+  background-color: #f0f0f0;
+  padding: 6px;
+  border-radius: 8px;
+  margin: 4px 0;
 }
 
 .chat-input-area {
@@ -132,6 +149,7 @@
 .send-button:hover {
   background-color: #218838;
 }
+
 .friends-list.expanded {
   width: 300px;
   height: 340px;
@@ -154,7 +172,6 @@
 }
 
 .search-bar button {
-  margin-left: 5px;
   padding: 5px 10px;
   background-color: #007bff;
   border: none;
@@ -169,6 +186,7 @@
 }
 
 .tab-buttons button {
+  border-radius: 4px;
   flex: 1;
   padding: 8px 0;
   background: #e0e0e0;
@@ -232,5 +250,82 @@
   border: none;
   cursor: pointer;
   font-size: 18px;
-  margin-left: 5px;
+}
+
+@media (max-width: 768px) {
+  .chat-box {
+    right: 20px;
+    bottom: 80px;
+    width: 80vw;
+    height: 40vh;
+    max-width: 95vw;
+    z-index: 1200;
+  }
+
+  .chat-header h4 {
+    margin: 0px;
+  }
+
+}
+
+@media (max-width: 400px) {
+  .friends-list.expanded {
+    width: 150px;
+    height: 180px;
+    padding: 5px;
+  }
+  .chat-box {
+    right: 20px;
+    bottom: 80px;
+    width: 80vw;
+    height: 48vh;
+    max-width: 95vw;
+    z-index: 1200;
+  }
+
+  .chat-header h4 {
+    margin: 0px;
+    font-size: 12px;
+  }
+
+  .search-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .search-bar input {
+    padding: 4px;
+    font-size: 12px;
+    margin-bottom: 5px;
+  }
+
+  .search-bar button,
+  .search-button {
+    padding: 4px 6px;
+    font-size: 12px;
+    width: 100%;
+  }
+
+  .tab-buttons button {
+    font-size: 12px;
+    padding: 6px 0;
+  }
+
+  .friend-item,
+  .friend-request-item,
+  .search-result-item {
+    font-size: 12px;
+    padding: 5px;
+  }
+
+  .add-friend-btn,
+  .accept-btn,
+  .reject-btn {
+    font-size: 10px;
+    padding: 2px 4px;
+  }
+
+  .chat-input {
+    height: 60px;
+  }
 }

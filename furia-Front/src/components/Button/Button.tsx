@@ -6,7 +6,6 @@ interface ButtonProps {
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
   children: React.ReactNode;
   className?: string;
-  size?: { width: string; height: string };
   border?: string;
   style?: React.CSSProperties;
 }
@@ -16,14 +15,12 @@ const Button: React.FC<ButtonProps> = ({
   onClick,
   children,
   className = "",
-  size = { width: "120px", height: "40px" },
   border = "1px solid #fff",
+  style = {},
 }) => {
-  // 
-  const buttonStyle = {
-    width: size.width,
-    height: size.height,
-    border: border,
+  const combinedStyle: React.CSSProperties = {
+    border,
+    ...style,
   };
 
   return (
@@ -31,7 +28,7 @@ const Button: React.FC<ButtonProps> = ({
       type={type}
       onClick={onClick}
       className={`btn ${className}`}
-      style={buttonStyle}
+      style={combinedStyle}
     >
       {children}
     </button>

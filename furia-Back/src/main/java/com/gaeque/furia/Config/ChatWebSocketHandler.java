@@ -65,7 +65,6 @@ public class ChatWebSocketHandler extends TextWebSocketHandler {
     protected void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception {
         System.out.println("Mensagem recebida: " + message.getPayload());
 
-        // Desserializa a mensagem
         ObjectMapper objectMapper = new ObjectMapper();
         ChatMessage chatMessage = objectMapper.readValue(message.getPayload(), ChatMessage.class);
 

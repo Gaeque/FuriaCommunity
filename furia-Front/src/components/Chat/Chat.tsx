@@ -374,11 +374,17 @@ const Chat: React.FC = () => {
             </span>
           </div>
           <div className="chat-messages">
-            {messages.map((msg, index) => (
-              <p key={index}>
-                <strong>{msg.sender}:</strong> {msg.content}
-              </p>
-            ))}
+            {messages.map((msg, index) => {
+              const isOwnMessage = msg.sender === user?.userName;
+              return (
+                <p
+                  key={index}
+                  className={isOwnMessage ? "own-message" : "friend-message"}
+                >
+                  <strong>{msg.sender}:</strong> {msg.content}
+                </p>
+              );
+            })}
           </div>
           <div className="chat-input-area">
             <textarea
@@ -386,6 +392,12 @@ const Chat: React.FC = () => {
               className="chat-input"
               value={message}
               onChange={(e) => setMessage(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" && !e.shiftKey) {
+                  e.preventDefault(); 
+                  handleSendMessage();
+                }
+              }}
             />
             <div className="chat-actions">
               <label className="image-upload">

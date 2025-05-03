@@ -1,56 +1,57 @@
 .user-posts-container {
-  margin-top: 20px;
+  margin-top: 1.25rem;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 1.25rem;
   width: 100%;
 }
 
 .new-post-card {
   display: flex;
   align-items: flex-start;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 0.0625rem solid #ccc;
+  border-radius: 0.625rem;
+  padding: 1.25rem;
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+  flex-wrap: wrap; /* Ajuste para responsividade */
 }
 
 .furia-logo {
-  width: 60px;
-  height: 80px;
+  width: 3.75rem;
+  height: 5rem;
   object-fit: contain;
-  margin-right: 20px;
+  margin-right: 1.25rem;
 }
 
 .new-post-content {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 0.625rem;
 }
 
 .new-post-textarea {
-  width: 98%;
-  height: 80px;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
+  width: 100%;
+  height: 5rem;
+  border: 0.0625rem solid #ddd;
+  border-radius: 0.5rem;
   resize: none;
   background-color: #303030;
-  font-size: 20px;
+  font-size: 1.25rem;
   color: #fff;
+  box-sizing: border-box;
 }
 
 .new-post-buttons {
   display: flex;
-  gap: 10px;
+  gap: 0.625rem;
   justify-content: flex-end;
 }
 
 .photo-button,
 .post-button {
-  padding: 8px 16px;
-  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
   border: none;
   cursor: pointer;
 }
@@ -76,15 +77,16 @@
 .posts {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 0.9375rem;
 }
 
 .post-card {
-  padding: 15px;
-  border-radius: 10px;
-  border: 1px solid #ddd;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  padding: 0.9375rem;
+  border-radius: 0.625rem;
+  border: 0.0625rem solid #ddd;
+  box-shadow: 0 0.125rem 0.375rem rgba(0, 0, 0, 0.1);
   position: relative;
+  font-size: 0.9rem; 
 }
 
 .post-header {
@@ -93,26 +95,29 @@
 }
 
 .post-card h4 {
-  font-size: 18px;
+  font-size: 1rem;
   color: #ffffff;
 }
 
 .post-card p {
-  font-size: 40px;
+  font-size: 1.125rem;
   color: #ffffff;
-  margin: 0px;
-  font-weight: bold;
+  margin: 0rem;
+  font-weight: 100;
+  word-wrap: break-word;
+  word-break: break-word;
+  padding: 0.5rem;
 }
 
 .post-actions {
   display: flex;
-  gap: 15px;
+  gap: 0.9375rem;
   justify-content: flex-end;
 }
 
 .furia-logo-post {
-  width: 60px;
-  height: 60px;
+  width: 3.75rem;
+  height: 3.75rem;
   object-fit: contain;
 }
 
@@ -122,7 +127,7 @@
   border: none;
   color: #007bff;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 0.875rem; /* Reduzido */
   transition: 0.2s ease-out;
 }
 
@@ -132,28 +137,28 @@
 }
 
 .comment-field {
-  margin-top: 10px;
+  margin-top: 0.625rem;
   display: flex;
-  gap: 8px;
+  gap: 0.5rem;
   align-items: flex-start;
 }
 
 .comment-field img.furia-logo-comment {
-  width: px;
-  height: px;
+  width: 3rem;
+  height: 3rem;
   object-fit: contain;
 }
 
 .comment-field textarea {
   flex: 1;
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid #ddd;
+  padding: 0.625rem;
+  border-radius: 0.3125rem;
+  border: 0.0625rem solid #ddd;
   resize: vertical;
-  min-height: 60px;
-  max-height: 150px;
+  min-height: 3.75rem;
+  max-height: 9.375rem;
   background-color: #303030;
-  font-size: 20px;
+  font-size: 1.125rem;
   color: #fff;
 }
 
@@ -161,29 +166,120 @@
   background-color: #28a745;
   color: white;
   border: none;
-  padding: 6px 12px;
-  border-radius: 4px;
+  padding: 0.375rem 0.75rem;
+  border-radius: 0.25rem;
   cursor: pointer;
-  margin-top: 20px;
+  margin-top: 1.25rem;
 }
 
 .comment-field button:hover {
   background-color: #218838;
 }
 
-.comments-section {
-  margin-top: 10px;
-  padding-left: 10px;
-  border-left: 2px solid #ccc;
+/* Responsividade */
+@media (max-width: 600px) {
+  .furia-logo {
+    width: 3rem;
+    height: 4rem;
+  }
+
+  .new-post-textarea {
+    height: 4rem;
+    font-size: 1rem;
+  }
+
+  .furia-logo-post {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .post-card {
+    padding: 0.625rem;
+    font-size: 0.85rem;
+  }
+
+  .photo-button,
+  .post-button {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.9rem;
+  }
 }
 
-.comment {
-  margin-bottom: 6px;
-  display: flex;
-  gap: 5px;
-  align-items: flex-start;
+@media (max-width: 490px) {
+  .furia-logo {
+    width: 2.5rem;
+    height: 3rem;
+  }
+
+  .new-post-textarea {
+    height: 4rem;
+    font-size: 0.875rem;
+  }
+
+  .furia-logo-post {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .post-card {
+    padding: 0.5rem;
+  }
+
+  .photo-button,
+  .post-button {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+  }
 }
 
-.comment strong {
-  font-weight: bold;
+@media (max-width: 420px) {
+  .furia-logo {
+    width: 2rem;
+    height: 2.5rem;
+  }
+
+  .new-post-textarea {
+    height: 3.5rem;
+    font-size: 0.75rem;
+  }
+
+  .furia-logo-post {
+    width: 1.4rem;
+    height: 1.4rem;
+  }
+
+  .post-card {
+    padding: 0.5rem;
+  }
+
+  .photo-button,
+  .post-button {
+    padding: 0.3rem 0.7rem;
+    font-size: 0.7rem;
+  }
+
+  .post-header h4 {
+    font-size: 12px;
+    margin-left: 12px;
+  }
+
+  .post-card p {
+    font-size: 14px;
+    margin-left: 12px;
+    font-weight: 100;
+    letter-spacing: 2px;
+  }
+
+  .like-button,
+  .comment-button {
+    font-size: 10px;
+  }
+
+  .btn {
+    width: 50px;
+    height: 20px;
+    padding: 0px;
+    margin: 0px;
+    font-size: 10px;
+  }
 }

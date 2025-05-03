@@ -15,36 +15,34 @@ export function Header() {
 
   return (
     <div className="container">
-      <Button
-        children="Sair"
-        border="none"
-        onClick={handleSignOut}
-        className="logout-button"
-      />
-
-      <Link to="/home">
+      <div className="left">
         <Button
-          children="Pagina Inicial"
-          border="1px solid #fff"
-          size={{ width: "140px", height: "40px" }}
+          children="Sair"
+          border="none"
+          onClick={handleSignOut}
+          className="logout-button"
         />
-      </Link>
+      </div>
 
-      <img
-        src={furia}
-        alt="Logo Fúria"
-        className="img"
-        width={70}
-        height={70}
-      />
+      <div className="center">
+        <Link to="/home">
+          <Button children="Pagina Inicial" border="1px solid #fff" />
+        </Link>
 
-      <Link to="/profile">
-        <Button
-          children="Perfil"
-          border="1px solid #fff"
-          size={{ width: "140px", height: "40px" }}
+        <img
+          src={furia}
+          alt="Logo Fúria"
+          className="img"
+          width={70}
+          height={70}
         />
-      </Link>
+
+        <Link to="/profile">
+          <Button children="Perfil" border="1px solid #fff" />
+        </Link>
+      </div>
+
+      <div className="right"></div>
     </div>
   );
 }

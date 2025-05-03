@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./UserPost.style.css";
 import furia from "../../assets/600px-FURIA_Esports_full_darkmode.png";
 import Button from "../Button/Button";
+import { useAuth } from "../../hooks/UseAuth";
 
 interface Comment {
   id: number;
@@ -21,6 +22,7 @@ export const UserPosts: React.FC = () => {
   const [posts, setPosts] = useState<Post[]>([]);
   const [newPost, setNewPost] = useState("");
   const [newComment, setNewComment] = useState<{ [key: number]: string }>({});
+  const { user } = useAuth();
 
   const handlePostChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setNewPost(e.target.value);
@@ -31,7 +33,7 @@ export const UserPosts: React.FC = () => {
 
     const newPostObject: Post = {
       id: posts.length + 1,
-      username: "Novo Usuário",
+      username: user?.userName ?? "",
       content: newPost,
       comments: [],
       showCommentField: false,
@@ -132,7 +134,6 @@ export const UserPosts: React.FC = () => {
                 💬 Comentar
               </button>
               <Button
-                size={{ width: "80px", height: "40px" }}
                 className="delete-Button"
                 onClick={() => handleDeletePost(post.id)}
               >

@@ -12,7 +12,7 @@ export const UpcomingGameCard: React.FC<UpcomingGameCardProps> = ({ games }) => 
   const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
-    let interval: number;
+    let interval: NodeJS.Timeout; 
 
     if (!isHovered) {
       interval = setInterval(() => {

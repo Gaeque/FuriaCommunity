@@ -24,7 +24,7 @@ export function Profile() {
   const [twitchUser, setTwitchUser] = useState("twitch.com");
   const { user } = useAuth();
   const [birthDate, setBirthDate] = useState("");
-  const [ , setProfile] = useState<ProfileDTO | null>(null);
+  const [, setProfile] = useState<ProfileDTO | null>(null);
   const [loading, setLoading] = useState(true);
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -147,18 +147,9 @@ export function Profile() {
                 {editMode ? (
                   <textarea
                     placeholder={bio}
+                    className="bio-textarea"
                     value={bio}
                     onChange={(e) => setBio(e.target.value)}
-                    style={{
-                      width: "20rem",
-                      height: "4rem",
-                      padding: "0.5rem",
-                      fontSize: "1rem",
-                      borderRadius: "8px",
-                      resize: "none",
-                      backgroundColor: "#1d1d1d",
-                      color: "#fff",
-                    }}
                   />
                 ) : (
                   <p>{bio}</p>
@@ -262,7 +253,6 @@ export function Profile() {
 
       <div className="edit-button-container">
         <Button
-          size={{ width: "200px", height: "40px" }}
           className={`edit-Button ${
             editMode ? "edit-button-save" : "edit-button-edit"
           }`}

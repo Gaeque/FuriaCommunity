@@ -1,24 +1,33 @@
 .btn {
-  width: 100%;
-  padding: 12px;
-  background-color: #000000;
+  width: 140px;
+  height: 40px;
+  padding: 8px 16px;
+  background-color: #000;
   color: #fff;
-  border: none;
-  border-radius: 4px;
+  border-radius: 6px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  font-size: 16px;
+  font-size: 0.9rem;
+  transition: background-color 0.3s;
+  text-align: center;
 }
 
 .btn:hover {
-  background-color: #272727;
+  background-color: #333;
 }
 
-.btn:focus {
-  outline: none;
+/* Responsivo */
+@media (max-width: 900px) {
+  .btn {
+    width: 120px;
+    height: 36px;
+    font-size: 0.8rem;
+  }
 }
 
-.btn:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
+@media (max-width: 600px) {
+  .btn {
+    width: 100%;
+    max-width: 240px;
+    font-size: 0.75rem;
+  }
 }

@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Header } from "../../components/Header/Header";
-import { PerfilCard } from "../../components/PerfilCard/PerfilCard";
 import { UpcomingGameCard } from "../../components/UpcomingGameCard/UpcomingGameCard";
 import { UserPosts } from "../../components/UserPost/UserPost";
 import { LatestNews } from "../../components/LatestNews/LatestNews";
