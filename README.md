@@ -26,19 +26,19 @@ Docker e Docker Compose
 
 Rodando o Frontend 
 
-> Abrir a pasta "furia-Front" com o VSCode(IDE de sua escolha)
-> Abrir o terminal e executar 'npm install"
-> npm rum dev
+Abrir a pasta "furia-Front" com o VSCode(IDE de sua escolha)
+Abrir o terminal e executar 'npm install"
+Executar com npm rum dev
 
 Abrirá um servidor de desenvolvimento em localhost;
 
 Rodando o Backend
 
-> Abrir a pasta "furia-Back" com o Intellij(IDE de sua escolha)
-> Abra um terminal
-> Compile a aplicação com "mvn clean install"
-> Rode o container Docker usando "docker-compose up -d"
-> Execute a aplicação com "mvn spring:boot run"
+Abrir a pasta "furia-Back" com o Intellij(IDE de sua escolha)
+Abra um terminal
+Compile a aplicação com "mvn clean install"
+Rode o container Docker usando "docker-compose up -d"
+Execute a aplicação com "mvn spring:boot run"
 
 O banco de dados utilizado foi um PostgreSQL rodando dentro de um container Docker.
 Utilizei a IDE DBeaver para as consultas ao banco de dados
