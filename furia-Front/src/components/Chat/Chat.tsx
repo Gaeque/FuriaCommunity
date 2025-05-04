@@ -230,6 +230,14 @@ const Chat: React.FC = () => {
     setWsService(ws);
   }, [user]);
 
+  useEffect(() => {
+    if (activeTab === "requests") {
+      handleGetPendingRequests();
+    } else if (activeTab === "friends") {
+      getFriends();
+    }
+  }, [activeTab]);
+
   return (
     <div className="chat-container">
       <div className="chat-icon" onClick={toggleChat}>
@@ -394,7 +402,7 @@ const Chat: React.FC = () => {
               onChange={(e) => setMessage(e.target.value)}
               onKeyDown={(e) => {
                 if (e.key === "Enter" && !e.shiftKey) {
-                  e.preventDefault(); 
+                  e.preventDefault();
                   handleSendMessage();
                 }
               }}
