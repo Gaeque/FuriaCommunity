@@ -1,10 +1,16 @@
 !! ATENÇÃO !!
 Verifique o uso de **PORTAS** em conflito
+
 Ajuste as configurações de **CORS** no backend
+
 Ajuste os endpoints do Front em furia-Front\src>api.tsx alterar a baseURL
+
 Ajuste o endpoint do WebSocket para o chat funcionar corretamente em: furia-Front\src>WebSocketService.tsx const socketUrl = " "
+
 Atente-se a **usuário e senha** do banco de dados PostgreSQL
+
 Não utilizei variaveis de ambiente, tipo .env, tudo está exposto 
+
 Caso encontre erros ao iniciar o banco de dados, considere limpar os volumes com:
 "docker-compose down -v && docker-compose up -d"
 
