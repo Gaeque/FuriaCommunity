@@ -24,7 +24,7 @@ Docker e Docker Compose
 
 1. Clonar o Repositório : https://github.com/Gaeque/FuriaCommunity
 
-Rodando o Frontend 
+**Rodando o Frontend** 
 
 Abrir a pasta "furia-Front" com o VSCode(IDE de sua escolha)
 Abrir o terminal e executar 'npm install"
@@ -32,7 +32,7 @@ Executar com npm rum dev
 
 Abrirá um servidor de desenvolvimento em localhost;
 
-Rodando o Backend
+**Rodando o Backend**
 
 Abrir a pasta "furia-Back" com o Intellij(IDE de sua escolha)
 Abra um terminal
