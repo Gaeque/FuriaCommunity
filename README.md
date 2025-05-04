@@ -1,7 +1,3 @@
-login: teste@furia.com  senha: 123
-login: teste2@furia.com senha: 123
-
-
 !! ATENÇÃO !!
 Verifique o uso de **PORTAS** em conflito
 
